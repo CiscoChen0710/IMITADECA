@@ -39,6 +39,44 @@ After training, find your checkpoint in:
 Imitator\logs\tb\<latest_version>\checkpoints
 ```
 
+Stage 2: Decoder Fine-tuning
+Modify the YAML config biden_stg02_latest.yaml, and set init_from_ckpt to the path of your Stage 1 checkpoint, for example:
+```bash
+init_from_ckpt: logs/tb/version_18/checkpoints/epoch=49-step=900.ckpt
+```
+Then run Stage 2 training:
+```bash
+python main.py -b cfg/style_adaption/biden_stg02_latest.yaml --gpus 0 --train
+```
+The trained stylized model will be saved under:
+```bash
+logs/tb/<latest_version>/checkpoints
+```
+
+Inference and Testing
+Run the following command to generate predictions and rendered results:
+```bash
+python imitator/test/test_model_external_audio.py \
+  -m logs/tb/<Your Version> \
+  -a personalized_Ebiden/audio_split_5s/biden_00001.wav \
+  -t biden \
+  -c 0 \
+  -r \
+  -d \
+  --template_obj personalized_Ebiden/template_latest_v1.obj
+```
+Argument Descriptions:
+-a: Path to the audio file
+
+-t: Subject identity (e.g., "biden")
+
+-c: Condition ID (0–7) from VOCA used for testing
+
+-r: Render the results as videos
+
+-d: Dump the prediction as .npy files
+
+--template_obj: Use a specific .obj file as the base mesh (usually the one used during training)
 
 
 
