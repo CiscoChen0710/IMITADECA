@@ -86,6 +86,9 @@ The trained stylized model will be saved under:
 ```bash
 logs/tb/<latest_version>/checkpoints
 ```
+After training is completed, you will find a `configs` folder under `Imitator/logs`. Please copy this folder into `Imitator/logs/tb/<latest_version>`.
+
+
 
 #### Inference and Testing
 Run the following command to generate predictions and rendered results:
