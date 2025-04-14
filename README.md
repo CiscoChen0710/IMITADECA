@@ -19,7 +19,7 @@ python demos/demo_reconstruct.py -I frames_biden --saveDepth true --saveObj True
 ```
 This will reconstruct meshes from the images in the frames_biden folder, and save depth maps and .obj mesh files.
 
-Imitator Setup (Windows-based Experiment)
+## Imitator Setup (Windows-based Experiment)
 1. Set Environment Variables
 Before running any script, set the following environment variables in your command prompt:
 ```bash
@@ -28,8 +28,8 @@ set HOME=<Your Path>\Imitator
 set PYTHONPATH=.
 ```
 
-Training Procedure
-Stage 1: Style Adaptation
+### Training Procedure
+#### Stage 1: Style Adaptation
 Run the following command to start the stage 1 training:
 ```bash
 python main.py -b cfg/style_adaption/biden_stg01_latest.yaml --gpus 0 --train
@@ -39,7 +39,7 @@ After training, find your checkpoint in:
 Imitator\logs\tb\<latest_version>\checkpoints
 ```
 
-Stage 2: Decoder Fine-tuning
+#### Stage 2: Decoder Fine-tuning
 Modify the YAML config biden_stg02_latest.yaml, and set init_from_ckpt to the path of your Stage 1 checkpoint, for example:
 ```bash
 init_from_ckpt: logs/tb/version_18/checkpoints/epoch=49-step=900.ckpt
@@ -53,7 +53,7 @@ The trained stylized model will be saved under:
 logs/tb/<latest_version>/checkpoints
 ```
 
-Inference and Testing
+#### Inference and Testing
 Run the following command to generate predictions and rendered results:
 ```bash
 python imitator/test/test_model_external_audio.py \
