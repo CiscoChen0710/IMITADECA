@@ -1,7 +1,7 @@
 # DECA + Imitator Setup Guide
 
 This guide outlines how to set up and run the DECA and Imitator pipelines for personalized 3D face mesh animation. Follow the steps below based on your system environment.
-DECA: https://github.com/yfeng95/DECA
+
 
 ---
 
@@ -11,6 +11,7 @@ DECA is not well-supported on native Windows environments. It is **highly recomm
 
 ### 1. Environment Setup
 Follow the official DECA GitHub page instructions to install the required dependencies and environment.
+DECA: https://github.com/yfeng95/DECA
 
 ### 2. Reconstruct Meshes
 Once the environment is set up, navigate to the DECA root directory and run:
@@ -21,6 +22,10 @@ python demos/demo_reconstruct.py -I frames_biden --saveDepth true --saveObj True
 This will reconstruct meshes from the images in the frames_biden folder, and save depth maps and .obj mesh files.
 
 ## Imitator Setup (Windows-based Experiment)
+1.Environment Setup
+Follow the official Imitator GitHub page instructions to install the required dependencies and environment.
+Imitator:https://github.com/bala1144/Imitator
+
 1. Set Environment Variables
 Before running any script, set the following environment variables in your command prompt:
 ```bash
