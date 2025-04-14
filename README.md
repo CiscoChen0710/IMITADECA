@@ -22,11 +22,11 @@ python demos/demo_reconstruct.py -I frames_biden --saveDepth true --saveObj True
 This will reconstruct meshes from the images in the frames_biden folder, and save depth maps and .obj mesh files.
 
 ## Imitator Setup (Windows-based Experiment)
-1.Environment Setup
+1. Environment Setup
 Follow the official Imitator GitHub page instructions to install the required dependencies and environment.
 Imitator:https://github.com/bala1144/Imitator
 
-1. Set Environment Variables
+2. Set Environment Variables
 Before running any script, set the following environment variables in your command prompt:
 ```bash
 set LOGHOME=<Your Path>\Imitator
