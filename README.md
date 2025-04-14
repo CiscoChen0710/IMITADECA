@@ -1,6 +1,7 @@
 # DECA + Imitator Setup Guide
 
 This guide outlines how to set up and run the DECA and Imitator pipelines for personalized 3D face mesh animation. Follow the steps below based on your system environment.
+DECA: https://github.com/yfeng95/DECA
 
 ---
 
