@@ -1,6 +1,7 @@
 # DECA + Imitator Setup Guide
 
 This guide outlines how to set up and run the DECA and Imitator pipelines for personalized 3D face mesh animation. Follow the steps below based on your system environment.
+Before setting up the environment, please make sure to download all the necessary files for both models into your local directory. Since the pipeline involves data exchange and interaction between the two models, failing to download both sets of files may lead to errors or unexpected behavior.
 
 
 ---
