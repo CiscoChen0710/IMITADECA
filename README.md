@@ -21,12 +21,36 @@ python demos/demo_reconstruct.py -I frames_biden --saveDepth true --saveObj True
 ```
 This will reconstruct meshes from the images in the frames_biden folder, and save depth maps and .obj mesh files.
 
+You will find the newly generated `.obj` files under the following directory after running DECA:
+
+```bash
+DECA/TestSamples/examples/reconstructed_objs
+```
+Next, you need to modify the paths in `DECA/TestSamples/examples/objTonpy.py` to match your local directory structure.
+for example:
+```bash
+template_path = r"<Your Path>\DECA\TestSamples\examples\reconstructed_objs\frame_00173.obj"  #template.obj file
+reconstructed_dir = r"<Your Path>\DECA\TestSamples\examples\reconstructed_objs"   # reconstructed_objs          
+output_dir = r"<Your Path>\Imitator\personalized_Ebiden\disps_latest_v1" #Imitator
+```
+then, run the objTonpy.py to generate the original dataset
+
 ## Imitator Setup (Windows-based Experiment)
 1. Environment Setup
 Follow the official Imitator GitHub page instructions to install the required dependencies and environment.
 Imitator:https://github.com/bala1144/Imitator
 
-2. Set Environment Variables
+2.make dataset segment
+use the segment_displacement_600_to_6_full.py to make the data set
+you may need to chang the path in this script.
+for example:
+```bash
+input_dir = r"<Your Path>\Imitator\personalized_Ebiden\disps_latest_v1"
+output_dir = r"<Your Path>\Imitator\personalized_Ebiden\disps_segmented_latest_v1"
+```
+then run it, you will get the dataset in "Imitator\personalized_Ebiden\disps_segmented_latest_v1"
+
+3. Set Environment Variables
 Before running any script, set the following environment variables in your command prompt:
 ```bash
 set LOGHOME=<Your Path>\Imitator
@@ -83,6 +107,10 @@ Argument Descriptions:
 -d: Dump the prediction as .npy files
 
 --template_obj: Use a specific .obj file as the base mesh (usually the one used during training)
+
+#### See your result
+If everything is correct, your will see your result in the logs/tb/<latest_version>/external_audio_results
+
 
 
 
